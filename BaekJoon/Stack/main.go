@@ -20,11 +20,15 @@ func New(size int) *Stack {
 	}
 }
 
-func (stack *Stack) Push(num int) {
+func (stack *Stack) Push(num int) error {
 	if len(stack.data) > stack.size {
 		stack.data[stack.size] = num
 		stack.size++
+
+		return nil
 	}
+
+	return fmt.Errorf("out of memory")
 }
 
 func (stack *Stack) Pop() int {
@@ -76,7 +80,10 @@ func main() {
 		switch split[0] {
 		case "push":
 			value, _ := strconv.Atoi(split[1])
-			stack.Push(value)
+			err := stack.Push(value)
+			if err != nil {
+				panic(err)
+			}
 		case "top":
 			fmt.Fprintf(w, "%d\n", stack.Top())
 		case "pop":
