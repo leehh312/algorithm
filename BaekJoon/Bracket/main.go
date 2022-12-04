@@ -69,8 +69,8 @@ func main() {
 	var n int
 	fmt.Scanln(&n)
 
-	stack := New(n)
 	for i := 0; i < n; i++ {
+		stack := New(n)
 		var valid bool = true
 		scn.Scan()
 		text := scn.Text()
@@ -93,7 +93,5 @@ func main() {
 		} else {
 			fmt.Fprintln(w, "NO")
 		}
-
-		stack = New(n)
 	}
 }
