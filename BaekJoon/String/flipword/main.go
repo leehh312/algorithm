@@ -42,7 +42,7 @@ func main() {
 	defer w.Flush()
 
 	sc := bufio.NewScanner(os.Stdin)
-	sc.Buffer(make([]byte, 1000001), 1000001)
+	sc.Buffer(make([]byte, 100001), 100001)
 	sc.Scan()
 	text := sc.Text()
 
