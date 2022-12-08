@@ -17,17 +17,13 @@ func Push(param rune) {
 }
 
 func Pop() rune {
-	result := stack[size-1]
 	size--
+	result := stack[size]
 	stack = stack[:size]
 
 	return result
 }
 
-/*
-()(((()())(())()))(()) = 17
-(((()(()()))(())()))(()()) = 24
-*/
 func main() {
 	w := bufio.NewWriter(os.Stdout)
 	defer w.Flush()
